@@ -1,0 +1,28 @@
+#Powers Program for 16c
+#Usage:
+#type a base number and hit Enter
+#type another to raise the first number to the power of
+#hit GSB A to Run the program at label A
+
+G LBL A
+STO I - STORE POWER in  Data Register 0 FROM X REG
+X<>Y  - GET BASE from Y register
+STO 0
+STO 1
+
+RCL I
+ENTER 
+1
+-
+STO I
+
+G LBL B
+RCL 0
+ENTER  - Duplicate BASE TO Y
+RCL 1
+X - Multiply
+STO 1
+
+DSZ
+GOTO B
+RTN
